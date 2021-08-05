@@ -44,7 +44,8 @@ const Header = ({authorized}) => {
 	}
 	return (
 		<nav className="nav">
-			<div className="container">
+			<div className="container relative">
+				{authorized && <span className="admin-tab">Hello, Admin!</span>}
 				<div className="row">
 					<div className="col-md-6">
 						<Link to="/">
@@ -54,8 +55,7 @@ const Header = ({authorized}) => {
 							</h1>
 						</Link>
 					</div>
-					<div className="col-md-6">
-						{authorized && <span className="admin-tab">Hello, Admin!</span>}
+					<div className="col-md-6">						
 						<div className="links" onClick={handleMobileLinks}>
 							{!authorized && <Link to="/login">Login</Link>}
 							{authorized && <Link to="/orderlist">Order List</Link>}
