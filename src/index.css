@@ -1,8 +1,11 @@
+:root {
+  --brand-color: #ff4545;
+}
+
 body {
+  background-color: #220034;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +13,343 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka One', cursive;
+}
+
+/* Header / Navbar Component */
+.nav {
+  height: 100px;
+  background-color: #fbfbfb;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
+  color: #fff;
+  position: relative;
+}
+
+.logo {
+  width: 90px;
+  padding-top: 5px;
+  display: inline-block;
+}
+
+@media(max-width: 767px) {
+  .logo {
+    width: 80px;
+    padding-top: 10px;
+  }
+}
+
+.logo span {
+  position: absolute;
+  top: 25px;
+  left: 120px;
+  color: var(--brand-color);
+  font-size: 40px;
+}
+
+@media(max-width: 767px) {
+  .logo span {
+    top: 30px;
+    left: 105px;
+    font-size: 30px;
+  }
+}
+
+.nav .links {
+  float: right;
+  margin-top: 35px;
+}
+
+@media(max-width: 767px) {
+  .nav .links {
+    background-color: var(--brand-color);
+    float: none;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: right;
+    width: 100%;
+    margin-left: -100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    transition: all .5s ease;
+  }
+  
+  .nav .links.active {
+    margin-left: -25%;
+  }
+}
+
+.nav .links a {
+  color: #000;
+  margin-right: 20px;
+  position: relative;
+}
+
+@media(max-width: 767px) {
+  .nav .links a {
+    color: #fff;
+    display: block;
+    margin: 10px;
+  }
+}
+
+.nav .links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: var(--brand-color);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.2s ease;
+}
+
+.nav .links a:hover::after {
+  width: 100%;
+}
+
+.nav .links a:hover {
+  text-decoration: none;
+}
+
+.navicon {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.navicon.active {
+  top: 45px;
+}
+
+.navicon .bar {
+  width: 30px;
+  height: 4px;
+  display: block;
+  margin-bottom: 4px;
+  background-color: var(--brand-color);
+  position: relative;
+  transition: all .3s ease;
+}
+
+.top-bar.active {
+  display: none;
+}
+
+.middle-bar.active {
+  transform: rotate(45deg);
+}
+
+.bottom-bar.active {
+  transform: rotate(-45deg);
+  top: -8px;
+}
+
+.admin-tab {
+  position: absolute;
+  right: 30px;
+  background-color: var(--brand-color);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 0 0px 10px 10px;
+  bottom: -29px;
+  font-size: 20px;
+}
+
+@media(max-width: 767px) {
+  .admin-tab {
+    top: 0;
+    bottom: auto;
+  }
+}
+
+/* Main Content Wrapper */
+.app-content {
+  min-height: 500px;
+  padding: 60px 0;
+  background: #fff;
+}
+
+/* Footer Component */
+.footer {
+  padding: 20px 0;
+  background-color: #220034;
+  color: #fff;
+  text-align: center;
+}
+
+/* Home Component */
+.featured-img {
+  width: 100%;
+  height: 233px;
+}
+
+@media(max-width: 991px) {
+  .featured-img {
+    height: 139px;
+  }
+}
+
+@media(max-width: 767px) {
+  .featured {
+    margin-bottom: 20px;  
+  }
+  
+  .featured-img {
+    height: auto;
+  }
+}
+
+/* Order Pizza Component */
+.order-content {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  position: relative;
+  border-radius: 10px;
+}
+
+@media(max-width: 767px) {
+  .order-content {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.pizza-options {
+  margin-bottom: 10px;
+}
+
+.pizza-img {
+  width: 100%;
+  height: 306px;
+  border-radius: 10px;
+}
+
+@media(max-width: 767px) {
+  .pizza-img {
+    height: auto;
+  }
+}
+
+.pepperoni-pizza-img {
+  display: none;
+}
+
+.cheese-pizza-img {
+  display: none;
+}
+
+/* Order list component */
+.order {
+  padding: 20px;
+  background-color: #f3f3f3;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.order .btn {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+@media(max-width: 991px) {
+  .order .btn {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: block;
+    margin-top: 10px;
+  }
+}
+
+.remove-all-orders {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+
+/* Order Summary */
+.order-summary a:hover {
+  text-decoration: none; 
+}
+
+/* Login form */
+.login-form {
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+@media(max-width: 767px) {
+  .login-form {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.alert-warning {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.hint {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.error {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Rotating Pizza animation */
+@-webkit-keyframes rotate /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotate {
+  -webkit-animation: rotate 3s linear infinite;
+  -moz-animation: rotate 3s linear infinite;
+  -ms-animation: rotate 3s linear infinite;
+  -o-animation: rotate 3s linear infinite;
+  animation: rotate 3s linear infinite;
 }
