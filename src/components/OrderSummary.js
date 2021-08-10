@@ -25,7 +25,7 @@ const OrderSummary = ({orderSummary}) => {
 					</span>
 				</h6>
 				<h6>
-					Extra Toppings:&nbsp;
+					Extra toppings:&nbsp;
 					<span>
 						{!orderSummary.mushrooms && !orderSummary.olives ? <span>None</span> : ''}
 						{orderSummary.mushrooms && `${orderSummary.mushrooms} `}
