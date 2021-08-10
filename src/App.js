@@ -23,6 +23,9 @@ function App() {
    // Main array of objects || orders state || orders array of objects
    const [orders, setOrders] = useState(getLocalData);
    
+   // Order summary state - this state is temporary, gets reset every new order
+   const [orderSummary, setOrderSummary] = useState({});
+   
    // input field states
    const [name, setName] = useState('');
    const [pizzaSize, setPizzaSize] = useState('Medium');
@@ -62,7 +65,7 @@ function App() {
             </Route>
             <Route path="/order">
               <Order 
-              orders={orders} setOrders={setOrders} name={name} setName={setName} 
+              orders={orders} setOrders={setOrders} orderSummary={orderSummary} setOrderSummary={setOrderSummary} name={name} setName={setName} 
               pizzaSize={pizzaSize} setPizzaSize={setPizzaSize} pizzaSizePrice={pizzaSizePrice} setPizzaSizePrice={setPizzaSizePrice} 
               pizza={pizza} setPizza={setPizza} pizzaTypePrice={pizzaTypePrice} setPizzaTypePrice={setPizzaTypePrice}
               crust={crust} setCrust={setCrust} crustPrice={crustPrice} setCrustPrice={setCrustPrice} 
@@ -75,7 +78,7 @@ function App() {
               <OrderList orders={orders} setOrders={setOrders} authorized={authorized} setAuthorized={setAuthorized}/>
             </Route>
             <Route path="/ordersummary">
-              <OrderSummary />
+              <OrderSummary orderSummary={orderSummary} />
             </Route>
             <Route path="/login">
               <LoginForm authorized={authorized} setAuthorized={setAuthorized} getAuthData={getAuthData} />

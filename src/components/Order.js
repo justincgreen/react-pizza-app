@@ -11,7 +11,7 @@ const Order = ({
 	crust, setCrust, crustPrice, setCrustPrice,
 	mushrooms, setMushrooms, mushroomsPrice, setMushroomsPrice, 
 	olives, setOlives, olivesPrice, setOlivesPrice, 
-	baseTotal, setBaseTotal
+	baseTotal, setBaseTotal, orderSummary, setOrderSummary
 }) => {
 	const history = useHistory();
 	const [error, setError] = useState('');
@@ -39,8 +39,21 @@ const Order = ({
 				total: baseTotal + pizzaSizePrice + pizzaTypePrice + crustPrice + mushroomsPrice + olivesPrice
 			}
 			
+			// create orderSummary object
+			const orderSummary = {
+				id: Date.now(),
+				name: name,
+				pizzaSize: pizzaSize,
+				pizza: pizza,
+				crust: crust,
+				mushrooms: mushrooms,
+				olives: olives,
+				total: baseTotal + pizzaSizePrice + pizzaTypePrice + crustPrice + mushroomsPrice + olivesPrice
+			}
+			
 			// Reset elements on form submit
 			setOrders([...orders, order]); // use spread operator to copy array
+			setOrderSummary(orderSummary); // save temp order summary
 			setName('');
 			setPizzaSize('Medium');
 			setPizza('Veggie');
